@@ -14,17 +14,17 @@ import javafx.scene.text.Font
 import javafx.stage.Stage
 
 // number of Fibonacci numbers in the list
-val N = 12
+val N = 9
 val fibs = mutableListOf<Int>()
 
 // canvas-related parameters
 val canvasW = 1000.0
-val canvasH = 1000.0
+val canvasH = 750.0
 
 // scaling parameters: adjust as needed
-val xOffset = 10
-val yOffset = 10
-val amplify = 15.0
+val xOffset = 150
+val yOffset = 50
+val amplify = 25.0
 
 class FibonacciSpiral : Application() {
     override fun start(stage: Stage) {
