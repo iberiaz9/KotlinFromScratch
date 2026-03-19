@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox
 import javafx.scene.text.Font
 import javafx.scene.text.Text
 
-// create the JavaFX application calss
+// create the JavaFX application class
 class HelloWorld : Application() {
     override fun start(primaryStage: Stage) {
         primaryStage.title = "Primary Stage"
@@ -25,7 +25,7 @@ class HelloWorld : Application() {
     }
 }
 
-// launch the application from the main() fucntion
+// launch the application from the main() function
 fun main() {
     Application.launch(HelloWorld::class.java)
 }

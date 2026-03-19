@@ -37,7 +37,7 @@ class BouncingBall : Application() {
         // Timeline-KeyFrame with ActionEvent
         val tl = Timeline()
         val moveBall = KeyFrame(
-            Duration.seconds(0.015),
+            Duration.seconds(0.03),
             {
                 // get min/max boundary coordinates
                 val xMin = redBall.boundsInParent.minX
@@ -48,9 +48,11 @@ class BouncingBall : Application() {
                 // change direction if boundary is hit/crossed
                 if (xMin < 0 || xMax > scene.width) {
                     dx = - dx
+                    dy = - dy
                 }
                 if (yMin < 0 || yMax > scene.height) {
                     dy = - dy
+                    dx = - dx
                 }
                 // continue to move
                 redBall.translateX += dx

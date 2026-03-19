@@ -1,12 +1,12 @@
 /* KOTLIN FROM SCRATCH - Faisal Islam */
 /* Chapter 04: Projects 09-12 */
 
-
+/*
 // -------------------- Project 09 --------------------
 
 // Find the Square Root with the Babylonian Algorithm
 
-fun main() {
+fun main9() {
     println("\n*** Finding Square Root Using Babylonian Algorithm ***\n")
     println("Enter a number (>=1) to find its square root:")
     val num = readln().toDouble()
@@ -32,7 +32,7 @@ fun babylonianSquareRoot(num: Double): Double {
 
 // Create Pythagorean Triples with Euclid’s Formula
 
-fun main() {
+fun main10() {
     var m = 2               // value of m
     var n = 1               // value of n
     val numTriples = 10     // number of triples
@@ -63,7 +63,7 @@ fun generatePythagoreanTriple(m: Int, n: Int):
 
 // Identify Prime Numbers with the Sieve of Eratosthenes
 
-fun main() {
+fun main11() {
     println("\n*** Find All Prime Numbers Up To 'n' ***\n")
     println("Enter a number > 2 to generate the list of primes:")
     val num: Int = readln().toInt()
@@ -98,8 +98,10 @@ fun sieveOfEratosthenes(n: Int): List<Int> {
         if (primes[i]) {
             for (j in i * i..n step i) {
                 primes[j] = false
+                println(j)
             }
         }
+        println("i: $i")
         i++
     }
 
@@ -109,7 +111,7 @@ fun sieveOfEratosthenes(n: Int): List<Int> {
 
     return primeNumbers
 }
-
+*/
 // -------------------- Project 12 --------------------
 
 // Calculate the Earth’s Circumference the Ancient Way

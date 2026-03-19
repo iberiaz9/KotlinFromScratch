@@ -41,7 +41,7 @@ fun drawMultiTurnSpiral(
     width: Double, height: Double) {
 
     // set key parameters for the spiral
-    val numCircles = 70  // number of circles
+    val numCircles = 20  // number of circles
     val turns = 2.0      // 360 degrees per turn
     val maxAngle = 360.0 * turns
 
@@ -57,7 +57,7 @@ fun drawMultiTurnSpiral(
 
     printParams(gc, radiusStep, numCircles)
 
-    for (i in 0..< numCircles) {
+    for (i in 1..< numCircles) {
         val angle = i * rotationStep
         val radius = i * radiusStep
 
@@ -65,7 +65,10 @@ fun drawMultiTurnSpiral(
         val y = (height / 2.0) + radius * sin(Math.toRadians(angle))
 
         // Draw circles with increasing radius
-        drawCircle(gc, x, y, radius)
+        if (i == numCircles - 1) {
+            drawCircle(gc, x, y, radius, Color.BLACK)
+        } else
+            drawCircle(gc, x, y, radius)
     }
 }
 
@@ -81,7 +84,7 @@ fun printParams(gc: GraphicsContext, radiusStep: Double, numCircles: Int) {
 
 fun drawCircle(
     gc: GraphicsContext,
-    x: Double, y: Double, radius: Double) {
+    x: Double, y: Double, radius: Double, color: Color=Color.LIGHTBLUE) {
 
     // set draw parameters
     val topLeftX = x - radius
@@ -90,7 +93,7 @@ fun drawCircle(
 
     with (gc) {
         lineWidth = 2.0
-        stroke = Color.LIGHTBLUE
+        stroke = color
         fill = Color.RED
         fillOval(x - pointSize / 2, y - pointSize / 2, pointSize, pointSize)
         strokeOval(topLeftX, topLeftY, radius * 2, radius * 2)
