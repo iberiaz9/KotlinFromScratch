@@ -16,7 +16,8 @@ import kotlin.math.PI
 import kotlin.math.pow
 
 // global parameters
-val BASE = 500.0
+var count = 0
+val BASE = 900.0
 val DEPTH = 7
 val baseMin = BASE * ((0.5).pow(DEPTH))
 
@@ -30,13 +31,13 @@ class HelloApplication : Application() {
 
         val rootNode = FlowPane()
         rootNode.alignment = Pos.CENTER
-        val canvas = Canvas(600.0, 600.0)
+        val canvas = Canvas(1000.0, 1000.0)
         val gc = canvas.graphicsContext2D
 
         // Add the canvas and button to the scene graph.
         rootNode.children.addAll(canvas)
 
-        val scene = Scene(rootNode,600.0, 600.0)
+        val scene = Scene(rootNode,1000.0, 1000.0)
         stage.title = "Sierpinski Triangle"
         stage.scene = scene
         stage.show()
@@ -44,8 +45,8 @@ class HelloApplication : Application() {
         // initialize and call function to draw Sierpinski Triangle
         val b = BASE      // BASE set to 500.0 globally
         val h = b * sin(PI / 3.0)
-        val x1 = 300.0
-        val y1 = 50.0
+        val x1 = 500.0
+        val y1 = 100.0
 
         val x = doubleArrayOf(x1, x1 - b/2, x1 + b/2)
         val y = doubleArrayOf(y1, y1 + h, y1 + h)
@@ -53,6 +54,7 @@ class HelloApplication : Application() {
         gc.strokePolygon(x, y, 3)
         // call the recursive function
         drawTriangle(x1, y1, b, h, gc)
+        println(count)
     }
 }
 
@@ -68,6 +70,7 @@ fun drawTriangle(x1: Double, y1: Double, base: Double,
                  height: Double, gc: GraphicsContext) {
 
     if (base > baseMin) {
+        count++
         val (p1, q1, p2, q2, p3, q3) = getVertices(x1, y1, base, height)
 
         val p = doubleArrayOf(p1, p2, p3)
